@@ -10,6 +10,7 @@
       "strict": true,
       "forceConsistentCasingInFileNames": true,
       "noFallthroughCasesInSwitch": true,
-      "module": "commonjs"
+      "module": "commonjs",
+      "types": ["node"]
    }
 }
