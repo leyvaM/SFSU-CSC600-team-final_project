@@ -29,7 +29,7 @@ export class DB {
     }
   }
 
-  private static async cleanupDB(): Promise<void> {}
+  private static async cleanupDB(): Promise<void> { }
 
   private static async initializeDB(): Promise<Database> {
     const existsAlready = await DB.exists();

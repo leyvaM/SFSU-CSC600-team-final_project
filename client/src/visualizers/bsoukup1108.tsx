@@ -25,7 +25,7 @@ export const BarVisualizer = new Visualizer(
       const end = (i + 1) * step;
       let sum = 0;
 
-     /* for (let j = start; j < end; j++) {
+     for (let j = start; j < end; j++) {
         sum += dataArray[j];
       }
 
@@ -40,3 +40,5 @@ export const BarVisualizer = new Visualizer(
     }
   },
 );*/
+
+export {};
