@@ -20,7 +20,6 @@ function App(): JSX.Element {
   /**
    * This React component bundles together the entire application state + main page GUI.
    */
-
   const [state, dispatch] = useReducer(appReducer, defaultState);
 
   useEffect(() => {
