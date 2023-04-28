@@ -52,11 +52,12 @@ const Harp: React.FC<InstrumentProps> = ({synth, setSynth}) => {
   const handleStringClick = (player: Tone.Player) => {
     player.start();
   };
+
   return (
     <div className="Harp">
       <div className="outer-grid">
         <div className="grid">
-          {Harp.map((Harp, index) => {
+          {harpStrings.map((Harp, index) => {
             const player = loadSample(Harp.path);
             return (
               <button
