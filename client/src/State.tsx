@@ -7,12 +7,11 @@ import {FluteInstrument} from './instruments/bsoukup1108';
 
 import { MPCInstrument } from './instruments/MPC';
 import { HarpInstrument } from './instruments/Harp';
-
+import {GuitarVisualizer} from './visualizers/GuitarWaveform';
 import {GuitarInstrument} from './instruments/leyvaM';
 import { WaveformVisualizer } from './visualizers/Waveform';
 import { BeatDetector } from './visualizers/FlashingLights';
 
->>>>>>> main
 
 /** ------------------------------------------------------------------------ **
  * The entire application state is stored in AppState.
@@ -29,12 +28,8 @@ const instruments = List([PianoInstrument, GuitarInstrument, FluteInstrument, MP
  * Start with the default waveform visualizer.
  * Add your visualizers to this list.
  */
-<<<<<<< HEAD
-const visualizers = List([WaveformVisualizer, GuitarVisualizer]);    // similar to Visualizer[]
 
-=======
-const visualizers = List([WaveformVisualizer, BeatDetector]);    // similar to Visualizer[]
->>>>>>> main
+const visualizers = List([WaveformVisualizer, BeatDetector, GuitarVisualizer]);    // similar to Visualizer[]
 
 /**
  * The default application state contains a list of instruments and a list of visualizers.

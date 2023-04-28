@@ -13,18 +13,4 @@
      "module": "commonjs",
      "types": ["node"]
   }
-   "compilerOptions": {
-      "target": "es6",
-      "rootDir": "./",
-      "outDir": "./build",
-      "allowJs": true,
-      "skipLibCheck": true,
-      "esModuleInterop": true,
-      "allowSyntheticDefaultImports": true,
-      "strict": true,
-      "forceConsistentCasingInFileNames": true,
-      "noFallthroughCasesInSwitch": true,
-      "module": "commonjs",
-      "types": ["node"]
-   }
 }
