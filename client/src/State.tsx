@@ -3,7 +3,8 @@ import { List, Map } from 'immutable';
 
 // project dependencies
 import { PianoInstrument } from './instruments/Piano';
-import {FluteInstrument} from './instruments/Flute';
+import {FluteInstrument} from './instruments/bsoukup1108';
+
 import { WaveformVisualizer } from './visualizers/Waveform';
 
 
