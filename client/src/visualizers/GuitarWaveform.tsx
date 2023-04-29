@@ -11,7 +11,7 @@ const stringColors = ['#ff0000', '#ff9900', '#ffff00', '#00ff00', '#00ffff', '#0
 const stringThickness = 5;
 
 export const GuitarVisualizer = new Visualizer(
-    'Guitar',
+    'GuitarVisualizer',
     (p5: P5, analyzer: Tone.Analyser) => {
         const width = window.innerWidth;
         const height = window.innerHeight / 2;

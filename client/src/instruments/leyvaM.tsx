@@ -1,16 +1,36 @@
 // 3rd party library imports
 import * as Tone from 'tone';
 import classNames from 'classnames';
-//import { List, Range } from 'immutable';
 import React, { useEffect, useMemo, useState } from 'react';
+import { List, Range } from 'immutable';
 // More 3rd party library imports
-//import Guitar, {getRenderFingerSpn} from 'react-guitar';
-//import GuitarString from 'react-guitar';
-//import { standard } from "react-guitar-tunings";
-//import useSound from "react-guitar-sound";
+import Guitar, {getRenderFingerSpn} from 'react-guitar';
+import { standard } from "react-guitar-tunings";
+import useSound from "react-guitar-sound";
 // project imports
 import { Instrument, InstrumentProps } from "../Instruments";
 
+
+function MyGuitar({ synth, setSynth }: InstrumentProps): JSX.Element {
+  const strings = useMemo(() => [0, 0, 0, 0, 0, 0], []);
+  const { play } = useSound({ fretting: strings, tuning: standard });
+
+  return (
+    <div className="relative dib h4 w-100 m14">
+      <Guitar
+        strings={strings}
+        renderFinger={getRenderFingerSpn(standard)}
+        playOnHover={true}
+        onPlay={play}
+      />
+    </div>
+  )
+}
+
+export const GuitarInstrument = new Instrument('Guitar', MyGuitar);
+
+
+/*
 const Guitar: React.FC<InstrumentProps> = ({synth, setSynth }) => {
   const guitarStrings = [
     { path: require("../GuitarNotes/E_Badd11StrumGuitar_01_526.wav"), label: "E" },
@@ -58,29 +78,7 @@ const Guitar: React.FC<InstrumentProps> = ({synth, setSynth }) => {
     </div>
   );
 }
-
-export const GuitarInstrument = new Instrument('Guitar', Guitar);
-
-/*
-function MyGuitar({ synth, setSynth }: InstrumentProps): JSX.Element {
-  const strings = useMemo(() => [0, 0, 0, 0, 0, 0], []);
-  const { play } = useSound({ fretting: strings, tuning: standard });
-  //const [tuning] = useState(standard);
-  //const frets={from: 0, amount: 20};
-
-  return (
-    <div className="relative dib h4 w-100 m14">
-      <Guitar
-        strings={strings}
-        renderFinger={getRenderFingerSpn(standard)}
-        playOnHover={true}
-        onPlay={play}
-      />
-    </div>
-  )
-}
 */
-
 
 /*
 interface GuitarKeyProps {
