@@ -1,10 +1,9 @@
-/* MPC.css */
-
 .MPC {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  height: 80%;
+  padding: .5rem;
 }
 
 .grid {
@@ -18,6 +17,7 @@
 
 .outer-grid {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
@@ -38,8 +38,25 @@
   user-select: none;
 }
 
-
 .MPC .pad:hover,
 .MPC .pad:focus {
   background-color: #555;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.slider-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.slider {
+  margin-bottom: 0.5rem;
 }

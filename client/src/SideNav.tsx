@@ -1,13 +1,14 @@
 // 3rd party library imports
 import classNames from 'classnames';
 import { List } from 'immutable';
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import {
   RadioButton20,
   RadioButtonChecked20,
   Music20,
 } from '@carbon/icons-react';
+
 
 // project imports
 import { DispatchAction } from './Reducer';
@@ -156,10 +157,29 @@ function SongsNav({ state, dispatch }: SideNavProps): JSX.Element {
    *  |-----------------|
   */
 
+  const [searchTerm, setSearchTerm] = useState('');
   const songs: List<any> = state.get('songs', List());
+
+  const filteredSongs = songs.filter((song) =>
+    song.get('songTitle').toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
+  const handleSearchInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchTerm(event.target.value);
+  };
+
   return (
     <Section title="Playlist">
-      {songs.map(song => (
+      <div className="mb2">
+        <input
+          type="text"
+          className="w-100 pa2"
+          value={searchTerm}
+          placeholder="Search songs"
+          onChange={handleSearchInputChange}
+        />
+      </div>
+      {filteredSongs.map(song => (
         <div
           key={song.get('id')}
           className="f6 pointer underline flex items-center no-underline i dim"
@@ -174,6 +194,7 @@ function SongsNav({ state, dispatch }: SideNavProps): JSX.Element {
     </Section>
   );
 }
+
 
 
 /** ------------------------------------------------------------------------ **
