@@ -13,6 +13,7 @@ import { WaveformVisualizer } from './visualizers/Waveform';
 import { BeatDetector } from './visualizers/FlashingLights';
 
 
+
 /** ------------------------------------------------------------------------ **
  * The entire application state is stored in AppState.
  ** ------------------------------------------------------------------------ */

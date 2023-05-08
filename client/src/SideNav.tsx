@@ -7,8 +7,10 @@ import {
   RadioButton20,
   RadioButtonChecked20,
   Music20,
+  Shuffle20,
+  Shuffle16,
 } from "@carbon/icons-react";
-
+import "./SongsNav.css";
 // project imports
 import { DispatchAction } from "./Reducer";
 import { AppState } from "./State";
@@ -156,6 +158,7 @@ function SongsNav({ state, dispatch }: SideNavProps): JSX.Element {
 
   const [searchTerm, setSearchTerm] = useState("");
   const songs: List<any> = state.get("songs", List());
+  const [currentSongId, setCurrentSongId] = useState("");
 
   const filteredSongs = songs.filter((song) =>
     song.get("songTitle").toLowerCase().includes(searchTerm.toLowerCase())
@@ -177,36 +180,35 @@ function SongsNav({ state, dispatch }: SideNavProps): JSX.Element {
 
   return (
     <Section title="Playlist">
-      {filteredSongs.size > 1 && (
-        <div
-          className="f6 pointer underline dim mt2 flex items-center"
-          onClick={handlePickRandomSong}
-        >
-          Pick a random song
+      <div className="Playlist">
+        {filteredSongs.size > 1 && (
+          <div className="random-song" onClick={handlePickRandomSong}>
+            <Shuffle20 className="mr1" />
+            PLAY RANDOM
+          </div>
+        )}
+        <div>
+          <input
+            type="text"
+            className="search-bar"
+            value={searchTerm}
+            placeholder="Search songs"
+            onChange={handleSearchInputChange}
+          />
         </div>
-      )}
-
-      <div className="mb2">
-        <input
-          type="text"
-          className="w-100 pa2"
-          value={searchTerm}
-          placeholder="Search songs"
-          onChange={handleSearchInputChange}
-        />
+        {filteredSongs.map((song) => (
+          <div
+            key={song.get("id")}
+            className="f6 pointer underline flex items-center no-underline i dim"
+            onClick={() =>
+              dispatch(new DispatchAction("PLAY_SONG", { id: song.get("id") }))
+            }
+          >
+            <Music20 className="mr1" />
+            {song.get("songTitle")}
+          </div>
+        ))}
       </div>
-      {filteredSongs.map((song) => (
-        <div
-          key={song.get("id")}
-          className="f6 pointer underline flex items-center no-underline i dim"
-          onClick={() =>
-            dispatch(new DispatchAction("PLAY_SONG", { id: song.get("id") }))
-          }
-        >
-          <Music20 className="mr1" />
-          {song.get("songTitle")}
-        </div>
-      ))}
     </Section>
   );
 }

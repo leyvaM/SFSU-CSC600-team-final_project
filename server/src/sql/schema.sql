@@ -24,3 +24,9 @@ VALUES (6, 'We Wish You a Merry Christmas', 'G4 G4 A4 G4 C5 B4 G4 G4 A4 G4 D5 C5
 
 INSERT INTO songs (id, song_title, notes)
 VALUES (7, 'The Entertainer', 'D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 G4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 G4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4');
+
+INSERT INTO songs (id, song_title, notes)
+VALUES (8, 'We Wish You a Merry Christmas', 'G4 G4 A4 G4 C5 B4 G4 G4 A4 G4 D5 C5 G4 G4 G5 E5 C5 B4 A4 F5 F5 E5 C5 D5 C5');
+
+INSERT INTO songs (id, song_title, notes)
+VALUES (9, 'The Entertainer', 'D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 G4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4 G4 D4 E4 D4 G4 C4 B4 A4 G4 E4 D4');
