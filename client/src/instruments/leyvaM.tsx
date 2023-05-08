@@ -102,6 +102,9 @@ function MyGuitar({ synth, setSynth}: InstrumentProps): JSX.Element {
   );
 }
 
+export const GuitarInstrument = new Instrument('Guitar', MyGuitar);
+
+
 /*
 function GuitarType({ title, onClick, active }: any): JSX.Element {
   return (
@@ -164,9 +167,6 @@ function MyGuitar({ synth, setSynth }: InstrumentProps): JSX.Element {
   )
 }
 */
-
-export const GuitarInstrument = new Instrument('Guitar', MyGuitar);
-
 
 /*
 const Guitar: React.FC<InstrumentProps> = ({synth, setSynth }) => {
