@@ -1,62 +1,21 @@
-.MPC {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80%;
-  padding: .5rem;
+.pad-button {
+  height: 50px;
+  width: 50px;
+  border: 2px solid #444;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 1rem;
-  justify-items: center;
-  align-items: center;
-  width: auto;
-}
-
-.outer-grid {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: black;
-  padding: 1rem;
-  border-radius: 4px;
-}
-
-.pad {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 4rem;
-  height: 4rem;
-  background-color: #ccc;
-  border: 2px solid #999;
-  border-radius: 4px;
+.pad-button:hover {
+  background-color: #444;
   cursor: pointer;
-  user-select: none;
 }
 
-.MPC .pad:hover,
-.MPC .pad:focus {
-  background-color: #555;
+.drum-pad {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  justify-content: center;
 }
 
-.controls {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
-  width: 100%;
-}
-
-.slider-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.slider {
-  margin-bottom: 0.5rem;
+.drum-type {
+  justify-content: center;
+  margin-right: 8px;
 }
