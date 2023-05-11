@@ -91,7 +91,7 @@ function InstrumentsNav({ state }: SideNavProps): JSX.Element {
   const location = useLocation();
 
   return (
-    <Section title="Instruments">
+    <Section title="Instruments" height="h-25">
       {instruments.map((i) => (
         <RadioButton
           key={i.name}
@@ -124,7 +124,7 @@ function VisualizersNav({ state }: SideNavProps): JSX.Element {
   const location = useLocation();
 
   return (
-    <Section title="Visualizers">
+    <Section title="Visualizers" height="h-25">
       {visualizers.map((v) => (
         <RadioButton
           key={v.name}
@@ -179,7 +179,7 @@ function SongsNav({ state, dispatch }: SideNavProps): JSX.Element {
   };
 
   return (
-    <Section title="Playlist">
+    <Section title="Playlist" height="h-50">
       <div className="Playlist">
         {filteredSongs.size > 1 && (
           <div className="random-song" onClick={handlePickRandomSong}>
@@ -255,9 +255,17 @@ function RadioButton({
  * Section
  ** ------------------------------------- */
 
-const Section: React.FC<{ title: string }> = ({ title, children }) => {
+const Section: React.FC<{ title: string; height: string }> = ({
+  title,
+  children,
+  height,
+}) => {
   return (
-    <div className="flex flex-column h-25 bb b--light-gray pa3">
+    <div
+      className={`flex flex-column bb b--light-gray pa3 ${
+        height ? `h-${height}` : ""
+      }`}
+    >
       <div className="fw7 mb2">{title} </div>
       <div className="flex-auto overflow-scroll">{children}</div>
     </div>

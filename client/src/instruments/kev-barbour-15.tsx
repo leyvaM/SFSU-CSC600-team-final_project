@@ -1,7 +1,7 @@
+import { useState, useEffect } from "react";
 import * as Tone from "tone";
 import classNames from "classnames";
 import { List } from "immutable";
-import React from "react";
 import "../MPC.css";
 import { mpcInstrument, mpcInstrumentProps } from "../Instruments";
 
@@ -25,19 +25,23 @@ export function DrumPad({ note, synth, index }: PadProps): JSX.Element {
 
 function DrumType({ title, onClick, active }: any): JSX.Element {
   return (
-    <div
-      onClick={onClick}
-      className={classNames("dim pointer ph2 pv1 ba mr2 br1 fw7 bw1", {
-        "b--black black": active,
-        "gray b--light-gray": !active,
-      })}
-    >
+    <div className="option" onClick={onClick}>
       {title}
     </div>
   );
 }
 
 function MPC({ synth, setSynth }: mpcInstrumentProps): JSX.Element {
+  const [selectedPreset, setSelectedPreset] = useState<string>("");
+  const [currentPreset, setCurrentPreset] = useState<string>("");
+  const synthPresets: List<string> = List([
+    "clap",
+    "tom",
+    "kick",
+    "hihat",
+    "snare",
+  ]);
+
   const pads = List([
     { note: "C2", idx: 0 },
     { note: "D2", idx: 1 },
@@ -105,11 +109,30 @@ function MPC({ synth, setSynth }: mpcInstrumentProps): JSX.Element {
         decayCurve: "exponential",
       },
     },
+    clap: {
+      pitchDecay: 0.1,
+      octaves: 3,
+      oscillator: {
+        type: "sine",
+        volume: 0,
+        phase: 0,
+        mute: false,
+        onstop: () => {},
+      },
+      envelope: {
+        attack: 0.005,
+        decay: 0.1,
+        sustain: 0.01,
+        release: 0.1,
+        attackCurve: "exponential",
+        decayCurve: "exponential",
+        releaseCurve: "exponential",
+      },
+    },
   };
 
-  const synthPresets: List<string> = List(["tom", "kick", "hihat", "snare"]);
-
   const setSynthPreset = (presetName: string) => {
+    setSelectedPreset(presetName);
     setSynth((oldSynth) => {
       oldSynth.dispose();
 
@@ -119,10 +142,14 @@ function MPC({ synth, setSynth }: mpcInstrumentProps): JSX.Element {
         ...preset,
       }).toDestination();
     });
+    setCurrentPreset(presetName);
   };
 
+  useEffect(() => {
+    setSynthPreset("clap");
+  }, []);
   return (
-    <div className="pv4">
+    <div className="mpc">
       <div className="drum-pad">
         {pads.map((pad) => (
           <DrumPad
@@ -133,15 +160,23 @@ function MPC({ synth, setSynth }: mpcInstrumentProps): JSX.Element {
           />
         ))}
       </div>
-      <div className={"pl4 pt4 flex"}>
-        {synthPresets.map((p) => (
-          <DrumType
-            key={p}
-            title={p}
-            onClick={() => setSynthPreset(p)}
-            active={synth?.get().pitchDecay === p}
-          />
-        ))}
+      <div
+        className="preset-and-options"
+        style={{ display: "flex", flexDirection: "column" }}
+      >
+        <div className="selected-preset">Drum Type: {selectedPreset}</div>
+        <div className="options-container">
+          {synthPresets.map((p) => (
+            <div className="options">
+              <DrumType
+                key={p}
+                title={p}
+                onClick={() => setSynthPreset(p)}
+                active={synth?.get().pitchDecay === p}
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
