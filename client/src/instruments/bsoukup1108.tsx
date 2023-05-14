@@ -119,7 +119,7 @@ const Flute: React.FC<InstrumentProps> = ({synth, setSynth}) => {
       </div>
 		</div>
 	</div>
-      <h4> Note: Multiple notes can be played at once. Notes are long, refresh to stop all notes.</h4>
+      <div className="hnote"><h4> Note: Multiple notes can be played at once. Notes are long, refresh to stop all notes.</h4></div>
       <div className="outer-grid">
         <div className="grid">
           

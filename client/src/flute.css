@@ -5,6 +5,14 @@
     background-color: burlywood;
     border-radius: 20px;
     overflow: hidden;
+    outline: 2px solid black;
+    margin: 0 auto;
+}
+
+.hnote{
+    width: 700px; 
+    height: 100px;
+    margin: 0 auto;
 }
 
 /* Style for the mouthpiece */
@@ -17,6 +25,7 @@
     background-color: rgb(56, 53, 53);
     border-radius: 0 50px 50px 0;
     transform: translateY(-50%);
+    outline: 2px solid white;
 }
 
 .button {
@@ -73,12 +82,12 @@
     cursor: pointer;
 }
 .notebtn span {
-    position: absolute;
-    bottom: -20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 12px;
-  }
+  position: absolute;
+  bottom: -20px;
+  left: 3%;
+  transform: translateX(-50%);
+  font-size: 18px;
+}
 
 .holebutton {
     position: absolute;
