@@ -23,7 +23,7 @@ export const CircleVisualizer = new Visualizer(
     const y = height / 4;
 
     p5.noStroke();
-    const nofillColor = p5.color(255);
+    const nofillColor = p5.color(166, 189, 201);
     if (amplitude == 0){
       p5.ellipse(x, y, 200, 200);
       p5.fill(nofillColor);
