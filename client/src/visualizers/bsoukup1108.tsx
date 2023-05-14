@@ -1,44 +1,40 @@
-/*import P5 from 'p5';
+import P5 from 'p5';
 import * as Tone from 'tone';
+
+// project imports
 import { Visualizer } from '../Visualizers';
 
-const barCount = 10; // Number of bars in the visualizer
-const barWidth = 20; // Width of each bar in pixels
-const barGap = 5; // Gap between bars in pixels
-const barMaxHeight = 200; // Maximum height of a bar in pixels
-
-export const BarVisualizer = new Visualizer(
-  'Bar',
+export const CircleVisualizer = new Visualizer(
+  'Circle',
   (p5: P5, analyzer: Tone.Analyser) => {
     const width = window.innerWidth;
-    const height = window.innerHeight / 2;
+    const height = window.innerHeight;
     const dim = Math.min(width, height);
 
     p5.background(0);
 
-    const dataArray = analyzer.getValue();
-    const values = dataArray.length;
-    const step = Math.floor(dataArray.length / barCount);
+    const values = analyzer.getValue();
+    for (let i = 0; i < values.length; i++) {
+    const amplitude = values[i] as number;
+    const hue = p5.map(amplitude, 0, 1, 0, 360); 
 
-    for (let i = 0; i < barCount; i++) {
-      const start = i * step;
-      const end = (i + 1) * step;
-      let sum = 0;
+    const radius = dim / 2 * amplitude;
+    const x = width / 2.5;
+    const y = height / 4;
 
-     for (let j = start; j < end; j++) {
-        sum += dataArray[j];
-      }
-
-      const average = sum / step;
-      const barHeight = (average / 255) * barMaxHeight;
-      const barX = (width / barCount) * i;
-      const barY = height - barHeight;
-
-      p5.fill(255);
-      p5.noStroke();
-      p5.rect(barX, barY, barWidth, barHeight);
+    p5.noStroke();
+    const nofillColor = p5.color(166, 189, 201);
+    if (amplitude == 0){
+      p5.ellipse(x, y, 200, 200);
+      p5.fill(nofillColor);
     }
-  },
-);*/
+    else{
+      const fillColor = p5.color(hue, 100, 100);
+      p5.fill(fillColor);
+    p5.ellipse(x, y, radius, radius);
+    }
+  }
+},
+  
+);
 
-export {};
