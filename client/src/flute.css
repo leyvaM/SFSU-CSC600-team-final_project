@@ -1,0 +1,146 @@
+.flute {
+    position: relative;
+    width: 1000px; 
+    height: 100px;
+    background-color: burlywood;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Style for the mouthpiece */
+.mouthpiece {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(56, 53, 53);
+    border-radius: 0 50px 50px 0;
+    transform: translateY(-50%);
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 150px;
+    height: 40px;
+    background-color: rgb(56, 53, 53);
+    border-radius: 0 50px 50px 0;
+    transform: translateY(-50%);
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+/* Style for the flute body */
+.body {
+    position: absolute;
+    top: 0;
+    left: 150px;
+    width: 850px; /* Adjust width to match the new width of the flute */
+    height: 100px;
+    background-color: burlywood;
+}
+
+/* Style for the holes */
+.hole {
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.notebtn{
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+.notebtn span {
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+  }
+
+.holebutton {
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    border-radius: 50%;
+    transform: translateY(-50%);
+    z-index: 1;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .holebutton:hover {
+    background-color: grey;
+  }
+
+  .holebutton:active {
+    background-color: black;
+  }
+
+
+/* Calculate the distance between the holes */
+/* There are 7 holes, so we divide the available space by 8 */
+/* We subtract the hole width to avoid overlapping */
+/* We then add the hole width back when positioning the first hole */
+.hole-spacing {
+    width: calc((850px / 8) - 20px);
+}
+
+/* Positioning of the holes */
+.hole.hole1 {
+    left: calc(150px + 20px);
+}
+
+.hole.hole2 {
+    left: calc(150px + 20px + (1 * (calc((850px / 8) - 20px))));
+}
+
+.hole.hole3 {
+    left: calc(150px + 20px + (2 * (calc((850px / 8) - 20px))));
+}
+
+.hole.hole4 {
+    left: calc(150px + 20px + (3 * (calc((850px / 8) - 20px))));
+}
+
+.hole.hole5 {
+    left: calc(150px + 20px + (4 * (calc((850px / 8) - 20px))));
+}
+
+.hole.hole6 {
+    left: calc(150px + 20px + (5 * (calc((850px / 8) - 20px))));
+}
+
+.hole.hole7 {
+    left: calc(150px + 20px + (6 * (calc((850px / 8) - 20px))));
+}
+
+/* Style for the closed holes */
+.hole.closed {
+    background-color: black;
+}
