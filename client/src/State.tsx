@@ -22,9 +22,9 @@ export type AppState = Map<string, any>; // similar to { [id: string]: any }
  */
 const instruments = List([
   PianoInstrument,
+  MPCInstrument,
   GuitarInstrument,
   FluteInstrument,
-  MPCInstrument,
   HarpInstrument,
 ]); // similar to Instrument[]
 
