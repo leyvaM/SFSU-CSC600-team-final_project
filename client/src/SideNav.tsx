@@ -16,7 +16,6 @@ import { DispatchAction } from "./Reducer";
 import { AppState } from "./State";
 import { Instrument } from "./Instruments";
 import { Visualizer } from "./Visualizers";
-
 /** ------------------------------------------------------------------------ **
  * SideNav component
  ** ------------------------------------------------------------------------ */
@@ -178,13 +177,21 @@ function SongsNav({ state, dispatch }: SideNavProps): JSX.Element {
     }
   };
 
+  const handleMakeRandomSong = () => {
+    dispatch(new DispatchAction("MAKE_RANDOM"));
+  };
+
   return (
     <Section title="Playlist" height="h-50">
       <div className="Playlist">
+      <div className="random-song" onClick={handleMakeRandomSong}>
+          <Shuffle20 className="mr1" />
+          GENERATE A RANDOM SONG
+        </div>
         {filteredSongs.size > 1 && (
           <div className="random-song" onClick={handlePickRandomSong}>
             <Shuffle20 className="mr1" />
-            PLAY RANDOM
+            PLAY A RANDOM SONG
           </div>
         )}
         <div>

@@ -43,22 +43,22 @@ function MPC({ synth, setSynth }: mpcInstrumentProps): JSX.Element {
   ]);
 
   const pads = List([
-    { note: "C2", idx: 0 },
-    { note: "D2", idx: 1 },
-    { note: "E2", idx: 2 },
-    { note: "F2", idx: 3 },
-    { note: "G2", idx: 4 },
-    { note: "A2", idx: 5 },
-    { note: "B2", idx: 6 },
-    { note: "C3", idx: 7 },
-    { note: "D3", idx: 8 },
-    { note: "E3", idx: 9 },
-    { note: "F3", idx: 10 },
-    { note: "G3", idx: 11 },
-    { note: "A3", idx: 12 },
-    { note: "B3", idx: 13 },
-    { note: "C4", idx: 14 },
-    { note: "D4", idx: 15 },
+    { note: "C3", idx: 0 },
+    { note: "D3", idx: 0.25 },
+    { note: "E3", idx: 0.5 },
+    { note: "F3", idx: 0.75 },
+    { note: "G3", idx: 1 },
+    { note: "A3", idx: 1.25 },
+    { note: "B3", idx: 1.5 },
+    { note: "C4", idx: 1.75 },
+    { note: "D4", idx: 2 },
+    { note: "E4", idx: 2.25 },
+    { note: "F4", idx: 2.5 },
+    { note: "G4", idx: 2.75 },
+    { note: "A4", idx: 3 },
+    { note: "B4", idx: 3.25 },
+    { note: "C5", idx: 3.5 },
+    { note: "D5", idx: 3.75 },
   ]);
 
   let presets: { [key: string]: Partial<Tone.MembraneSynthOptions> } = {
