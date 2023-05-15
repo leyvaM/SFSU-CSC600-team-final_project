@@ -5,10 +5,10 @@ import * as Tone from 'tone';
 // project imports
 import { Visualizer } from '../Visualizers';
 
-// function randomColor() {
-//   let o = Math.round, r = Math.random, s = 255;
-//   return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + 0.5 + ')';
-// }
+function ampColor(amplitude: number) {
+  let o = Math.round, r = Math.random, s = 100;
+  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + 0.5 + ')';
+}
 
 export const ColorFormVisualizer = new Visualizer(
   'ColorForm',
