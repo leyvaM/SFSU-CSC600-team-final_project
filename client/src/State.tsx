@@ -9,7 +9,7 @@ import { HarpInstrument } from "./instruments/Harp";
 import { GuitarVisualizer } from "./visualizers/GuitarWaveform";
 import { GuitarInstrument } from "./instruments/leyvaM";
 import { WaveformVisualizer } from "./visualizers/Waveform";
-import { BeatDetector } from "./visualizers/FlashingLights";
+import { BeatDetector } from "./visualizers/kev-barbour-15";
 import { CircleVisualizer } from "./visualizers/bsoukup1108";
 /** ------------------------------------------------------------------------ **
  * The entire application state is stored in AppState.

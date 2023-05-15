@@ -1,47 +1,59 @@
 import P5 from "p5";
 import * as Tone from "tone";
-import WaveSurfer from "wavesurfer.js";
-
-// project imports
 import { Visualizer } from "../Visualizers";
 
-export const WaveSurferVisualizer = new Visualizer(
-  "WaveSurfer",
+function randomColor() {
+  let o = Math.round, r = Math.random, s = 255;
+  return 'rgba(' + o(r()*s) + ',' + o(r()*s) + ',' + o(r()*s) + ',' + 0.5 + ')';
+}
+
+export const BeatDetector = new Visualizer(
+  "Flashing Lights",
   (p5: P5, analyzer: Tone.Analyser) => {
     const width = window.innerWidth;
     const height = window.innerHeight / 2;
 
-    // Create a canvas element using P5.js
-    const canvas = p5.createCanvas(width, height);
+    // Background color changes for every frame
+    p5.background(randomColor());
 
-    // Use Tone.js library to get audio data
-    const audio = new Tone.Player("music.mp3").toDestination();
-    audio.autostart = true;
+    const values = analyzer.getValue();
+    const angleIncrement = p5.TWO_PI / values.length;
+    
+    // Draw lines from the center of the canvas
+    const centerX = width / 2;
+    const centerY = height / 2;
 
-    // Create a WaveSurfer instance and load audio data
-    const wavesurfer = WaveSurfer.create({
-      container: "#waveform",
-      waveColor: "#A9A9A9",
-      progressColor: "#FF8C00",
-    });
-    wavesurfer.load("music.mp3");
+    for (let i = 0; i < values.length; i++) {
+      const value = values[i] as number;
 
-    // Use P5.js to draw shapes and animations on the canvas element
-    p5.draw = () => {
-      p5.background(0);
-      const waveform = analyzer.getValue();
-      const waveformArray = Array.isArray(waveform) ? waveform[0] : waveform;
-      const radius = p5.map(waveformArray.reduce((a, b) => a + b) / waveformArray.length, -1, 1, 50, 200);
+      // The length of each line is determined by the frequency values
+      const lineLength = p5.map(value, -1, 1, 0, Math.max(width, height) / 2);
       
-      p5.fill(255, 0, 0);
-      p5.noStroke();
-      p5.ellipse(width / 2, height / 2, radius);
+      // Alternate line color between black and white
+      const lineColor = i % 2 === 0 ? p5.color(0) : p5.color(255);
 
-      // Draw a rectangle with a width based on the audio level
-      const rectWidth = p5.map(waveformArray[1], -1, 1, 50, 500);
-      p5.fill(0, 255, 0);
+      // Calculate the endpoint of each line
+      const angle = angleIncrement * i;
+      const endX = centerX + lineLength * Math.cos(angle);
+      const endY = centerY + lineLength * Math.sin(angle);
+
+      // Draw the line
+      p5.stroke(lineColor);
+      p5.strokeWeight(5); // Set the thickness of the line
+      p5.line(centerX, centerY, endX, endY);
+    }
+
+    // Draw 5 randomly placed circles with different sizes
+    for (let i = 0; i < 5; i++) {
+      const circleX = p5.random(width);
+      const circleY = p5.random(height);
+      const circleDiameter = p5.random(50, 200); // Change these values to control the size of the circles
+      const circleColor = randomColor();
+
+      p5.fill(circleColor);
       p5.noStroke();
-      p5.rect((width - rectWidth) / 2, height / 2 - 50, rectWidth, 100);
-    };
-  }
+      p5.ellipse(circleX, circleY, circleDiameter);
+    }
+  },
 );
+
