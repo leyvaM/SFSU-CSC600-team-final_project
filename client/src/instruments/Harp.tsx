@@ -54,20 +54,7 @@ const Harp: React.FC<InstrumentProps> = ({synth, setSynth}) => {
     player.start();
   };
 
-  // return(
-  //   <div className='harp'>
-  //     <span onMouseOver={() => handleStringClick(player)}></span>
-  //     <span></span>
-  //     <span></span>
-  //     <span></span>
-  //     <span></span>
-  //     <span></span>
-  //     <span></span>
-  //   </div>
-  // );
-
-  return (
-    
+  return (    
     <div className="harp">          
       {harpStrings.map((Harp, index) => {
             const player = loadSample(Harp.path);
@@ -81,7 +68,6 @@ const Harp: React.FC<InstrumentProps> = ({synth, setSynth}) => {
       })}
     </div>
   );
-
 };
 
 export const HarpInstrument = new Instrument('Harp', Harp);
