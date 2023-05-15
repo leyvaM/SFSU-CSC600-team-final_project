@@ -8,6 +8,7 @@
 import React, {useEffect, useState} from 'react';
 import * as Tone from "tone";
 import { Instrument, InstrumentProps } from '../Instruments';
+import "../HarpDisplay.css"
 
 /** ------------------------------------------------------------------------ **
  * Contains implementation of components for Harp.
@@ -53,26 +54,34 @@ const Harp: React.FC<InstrumentProps> = ({synth, setSynth}) => {
     player.start();
   };
 
+  // return(
+  //   <div className='harp'>
+  //     <span onMouseOver={() => handleStringClick(player)}></span>
+  //     <span></span>
+  //     <span></span>
+  //     <span></span>
+  //     <span></span>
+  //     <span></span>
+  //     <span></span>
+  //   </div>
+  // );
+
   return (
-    <div className="Harp">
-      <div className="outer-grid">
-        <div className="grid">
-          {harpStrings.map((Harp, index) => {
+    
+    <div className="harp">          
+      {harpStrings.map((Harp, index) => {
             const player = loadSample(Harp.path);
             return (
-              <button
+              <span
                 key={index}
-                onClick={() => handleStringClick(player)}
-                className="Harp"
-              >
-                {Harp.label}
-              </button>
+                onMouseOver={() => handleStringClick(player)}
+                className="Harp horizontal-shake">
+              </span>
             );
-          })}
-        </div>
-      </div>
+      })}
     </div>
   );
+
 };
 
 export const HarpInstrument = new Instrument('Harp', Harp);
