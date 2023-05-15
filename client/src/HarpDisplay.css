@@ -1,5 +1,5 @@
 span.horizontal-shake:hover {
-  animation: horizontal-shaking 0.35s infinite;
+  animation: horizontal-shaking 0.25s infinite;
 }
 
 @keyframes horizontal-shaking  {
@@ -13,8 +13,8 @@ span.horizontal-shake:hover {
 /* Create a container for the harp */
 .harp {
     position: relative;
-    width: 100%;
-    height: 300px;
+    width: 700px;
+    height: 250px;
     margin: 50px auto;
     background-color: #d8d8d8;
     border-radius: 5px;
