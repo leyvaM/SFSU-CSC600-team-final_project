@@ -1,0 +1,70 @@
+    .xylophone {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        height: 200px;
+        background-color: black;
+    }
+
+    .bar {
+        width: 65px;
+        height: 100px;
+        background-color: #b74923;
+        border-radius: 5px;
+        border-style: solid;
+        border-color: black;
+        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .bar:hover {
+        border-color: gray;
+    }
+
+    .steel-screw {
+        width: 15px;
+        height: 15px;
+        background-color: silver;
+        margin: 10px;
+        border-radius: 50%;
+    }
+
+    .c5 {
+        height: 170px;
+    }
+
+    .d5 {
+        height: 165px;
+    }
+
+    .e5 {
+        height: 160px;
+    }
+
+    .f5 {
+        height: 155px;
+    }
+
+    .g5 {
+        height: 150px;
+    }
+
+    .a5 {
+        height: 145px;
+    }
+
+    .b5 {
+        height: 140px;
+    }
+
+    .c6 {
+        height: 135px;
+    }
+
+    .b8 {
+        height: 130px;
+    }
