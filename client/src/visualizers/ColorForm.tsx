@@ -17,10 +17,10 @@ export const ColorFormVisualizer = new Visualizer(
     const height = window.innerHeight / 2;
     const dim = Math.min(width, height);
 
-    p5.background(100, 100, 100, 255);
+    p5.background(100, 100, 100, 100);
 
-    p5.strokeWeight(dim * 0.01);
-    p5.stroke('red');
+    //p5.strokeWeight(dim * 0.01);
+    p5.stroke('blue');
     p5.noFill();
 
     const values = analyzer.getValue();
@@ -28,9 +28,10 @@ export const ColorFormVisualizer = new Visualizer(
     for (let i = 0; i < values.length; i++) {
       const amplitude = values[i] as number;
       const y = p5.map(i, 0, values.length - 1, 0, width);
-      const x = height / 2 + amplitude * (height * 5);
+      const x = height / 2 + amplitude * (height);
+      p5.strokeWeight(dim * 0.0003 * x);
       // Place vertex
-      p5.vertex(x, y);
+      p5.vertex(x + 350, y);
     }
     p5.endShape();
   },
