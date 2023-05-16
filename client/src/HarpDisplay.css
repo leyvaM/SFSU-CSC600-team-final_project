@@ -1,3 +1,4 @@
+/* Chris Torrez display and animtaion for harp */
 span.horizontal-shake:hover {
   animation: horizontal-shaking 0.25s infinite;
 }
