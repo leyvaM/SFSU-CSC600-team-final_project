@@ -7,6 +7,7 @@ import "../xylophone.css"
 import { Instrument, InstrumentProps } from '../Instruments';
 
 const Xylophone: React.FC<InstrumentProps> = ({ synth, setSynth }) => {
+    // contains the paths and labels for each note in the instrument
     const XylophoneNotes = [
         { path: require("../XylophoneNotes/C4.wav"), label: "C4" },
         { path: require("../XylophoneNotes/D4.wav"), label: "D4" },
@@ -26,22 +27,25 @@ const Xylophone: React.FC<InstrumentProps> = ({ synth, setSynth }) => {
 
     const [players, setPlayers] = useState<Tone.Player[]>([]);
 
+    // used to load the audio samples
     useEffect(() => {
         setPlayers(XylophoneNotes.map((note) => loadSample(note.path)));
     }, []);
 
+    // connects the player to the audio destination
     const loadSample = (url: string) => {
         return new Tone.Player(url).toDestination();
     };
 
+    // function is called when a bar is clicked at a specified index
     const handleStringClick = (index: number) => {
         players[index].start();
     }
 
+    // renders the xylophone component with clickable bar elements to play the notes
     return (
         <div className="xylophone">
             {XylophoneNotes.map((note, index) => {
-                //const player = loadSample(Xylophone.path);
                 return (
                     <div
                         key={note.label}
@@ -57,4 +61,4 @@ const Xylophone: React.FC<InstrumentProps> = ({ synth, setSynth }) => {
     );
 };
 
-export const XylophoneInstrument = new Instrument('leyvaM', Xylophone);
+export const XylophoneInstrument = new Instrument('Xylophone', Xylophone);

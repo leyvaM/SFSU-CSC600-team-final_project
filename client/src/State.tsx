@@ -11,6 +11,7 @@ import { WaveformVisualizer } from "./visualizers/Waveform";
 import { BeatDetector } from "./visualizers/kev-barbour-15";
 import { CircleVisualizer } from "./visualizers/bsoukup1108";
 import { ElectricWaveform } from "./visualizers/ElectricWaveform";
+import { ParticleVisualizer } from "./visualizers/leyvaM";
 /** ------------------------------------------------------------------------ **
  * The entire application state is stored in AppState.
  ** ------------------------------------------------------------------------ */
@@ -33,7 +34,7 @@ const instruments = List([
  * Add your visualizers to this list.
  */
 
-const visualizers = List([WaveformVisualizer, BeatDetector, CircleVisualizer, ElectricWaveform]); // similar to Visualizer[]
+const visualizers = List([WaveformVisualizer, BeatDetector, CircleVisualizer, ElectricWaveform, ParticleVisualizer]); // similar to Visualizer[]
 
 /**
  * The default application state contains a list of instruments and a list of visualizers.
