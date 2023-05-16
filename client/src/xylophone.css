@@ -13,6 +13,7 @@
         border-radius: 5px;
         border-style: solid;
         border-color: black;
+        margin-left: 2px;
         box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         display: flex;
         flex-direction: column;
@@ -33,38 +34,54 @@
         border-radius: 50%;
     }
 
-    .c5 {
+    .c4 {
+        height: 180px;
+    }
+
+    .d4 {
+        height: 175px;
+    }
+
+    .e4 {
         height: 170px;
     }
 
-    .d5 {
+    .f4 {
         height: 165px;
     }
 
-    .e5 {
+    .g4 {
         height: 160px;
     }
 
-    .f5 {
+    .a4 {
         height: 155px;
     }
 
-    .g5 {
+    .b4 {
         height: 150px;
     }
 
-    .a5 {
+    .c5 {
         height: 145px;
     }
 
-    .b5 {
+    .d5 {
         height: 140px;
     }
 
-    .c6 {
+    .e5 {
         height: 135px;
     }
 
-    .b8 {
+    .f5 {
         height: 130px;
+    }
+
+    .g5 {
+        height: 125px;
+    }
+
+    .a5 {
+        height: 120px;
     }
